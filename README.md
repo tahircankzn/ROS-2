@@ -180,3 +180,107 @@ Eğer mesajlar akıyorsa kurulum başarılıdır.
 ```
 ```
 
+## Kullanılacak Araçlar (Development Environment Setup)
+
+ROS 2 geliştirme sürecinde daha verimli bir çalışma ortamı oluşturmak için bazı temel araçlar kurulmuştur. Bu araçlar hem kod geliştirme hem de sistem takibi açısından geliştirme sürecini kolaylaştırır.
+
+---
+
+## 1. VS Code (Visual Studio Code)
+
+Geliştirme ortamı olarak **VS Code** kullanılmıştır.
+
+Kullanım amacı:
+- ROS 2 node geliştirme
+- Python / C++ kod yazımı
+- CMake projelerinin yönetimi
+- Debug ve extension desteği
+
+Kurulum sonrası eklenen önemli eklentiler:
+- CMake Tools
+- Python Extension
+- C/C++ Extension
+
+---
+
+## 2. CMake Tools (VS Code Extension)
+
+VS Code içerisine **CMake Tools** eklentisi kurulmuştur.
+
+Kullanım amacı:
+- C++ ROS 2 paketlerini build etmek
+- CMake yapılarını yönetmek
+- Derleme sürecini VS Code içinden kontrol etmek
+
+---
+
+## 3. Python Pip
+
+```bash
+sudo apt install python3-pip
+````
+
+Kullanım amacı:
+
+* Python ROS 2 paket bağımlılıklarını yönetmek
+* Ek Python kütüphanelerini kurmak
+
+---
+
+## 4. Terminator Terminal
+
+```bash
+sudo apt install terminator
+```
+
+Kurulum sebebi:
+
+* Aynı anda birden fazla terminal ekranı kullanabilmek
+* ROS 2 node, topic ve debug süreçlerini paralel takip edebilmek
+
+Avantaj:
+
+* Tek pencere içinde bölünmüş terminal ekranları
+* ROS sistemlerinde gerçek zamanlı izleme kolaylığı
+
+Not:
+Terminator için Linux shortcut kullanımı önemlidir (split screen, tab switching vb.)
+
+---
+
+## 5. Gedit
+
+```bash
+gedit
+```
+
+Kullanım amacı:
+
+* Hızlı dosya düzenleme
+* Config dosyalarını değiştirme
+* Hafif text editör ihtiyacı
+
+---
+
+## Genel Amaç
+
+Bu araçlar:
+
+* ROS 2 geliştirme ortamını standart hale getirmek
+* Debug sürecini hızlandırmak
+* Multi-node sistemleri aynı anda gözlemlemek
+* C++ ve Python tabanlı ROS projelerini birlikte yönetmek
+
+---
+
+## Özet
+
+Bu setup ile:
+
+* VS Code → ana geliştirme ortamı
+* Terminator → multi-terminal kontrol
+* CMake Tools → build sistemi kontrolü
+* Pip → Python bağımlılık yönetimi
+* Gedit → hızlı edit işlemleri
+
+daha stabil ve verimli bir ROS 2 geliştirme ortamı oluşturulmuştur.
