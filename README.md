@@ -1,283 +1,103 @@
-# ROS-2
-## ROS 2 Sürümü Nasıl Seçilir?
+# ROS-2 Öğrenme ve Geliştirme Yol Haritası
 
-ROS 2 sürümleri, farklı stabilite ve destek sürelerine göre yayınlanır.
-Doğru sürüm seçimi, projenin başarımı ve sürdürülebilirliği açısından kritiktir.
+Bu repository, ROS 2 (Humble) öğrenimi ve gerçek zamanlı sistem geliştirme süreçlerini adım adım ilerletmek için hazırlanmıştır.
 
-Tüm sürümler ve destek süreleri resmi sayfada listelenir:
-https://docs.ros.org/en/rolling/Releases.html
-
----
-
-### 1. LTS (Long Term Support) Sürümler
-
-* Uzun süre destek (genellikle 5 yıl)
-* Stabil ve test edilmiş
-* Endüstriyel projeler için uygun
-
-**Öneri:**
-Çoğu proje için LTS sürümler tercih edilmelidir.
+Amaç yalnızca ROS 2 kurmak değil, aynı zamanda:
+- ROS 2 mimarisini anlamak
+- Gerçek veri akış sistemleri tasarlamak
+- Görüntü işleme pipeline’larını ROS 2’ye taşımak
+- Performans (FPS / latency) analizleri yapmak
+- Dağıtık ve gerçek zamanlı sistem mantığını geliştirmektir
 
 ---
 
-### 2. Rolling Release
+# Repository Yapısı
 
-* Sürekli güncellenir
-* En yeni özellikler burada bulunur
-* Stabil değildir
-
----
-
-### Önemli Not
-
-Farklı ROS sürümleri:
-
-* Paket uyumsuzluklarına
-* API değişikliklerine
-* Çalışmayan node’lara
-
-sebep olabilir.
-
-Bu yüzden:
-Tüm geliştirme süreci boyunca aynı ROS sürümü kullanılmalıdır.
-
-# ROS 2 Humble Kurulumu (Ubuntu - DEB Packages)
-## ROS 2 Humble Kurulumu (Ubuntu - DEB Packages)
-ROS 2 Humble kurulumu resmi dokümantasyon üzerinden yapılmıştır:
-````markdown
-https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
-````
----
-
-## Önemli Not (Sürüm ve Güncellik)
-
-Bu repository kapsamında **ROS 2 Humble** sürümü kullanılmıştır.
-
-Bu kurulum adımları, yazıldığı tarihteki resmi ROS 2 Humble dokümantasyonuna dayanmaktadır ve genel kurulum mantığını açıklamayı amaçlamaktadır.
-
-* Kurulum komutları zamanla değişebilir.  
-* Güncel ve doğru bilgi için her zaman resmi dokümantasyon kontrol edilmelidir.
-
-Bu bölüm:
-- Kurulumun temel mantığını öğretmek için hazırlanmıştır  
-- Birebir “tek doğru yöntem” değildir  
-- Sistem güncellemeleri ile farklılık gösterebilir  
-
----
-
-## 1. Locale Ayarı (UTF-8)
-
-Kurulumun ilk adımı sistem locale ayarlarının UTF-8 olmasıdır.
-
-```bash
-locale
-````
-
-Eğer uygun değilse:
-
-```bash
-sudo apt update && sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8
 ```
 
-Doğrulama:
+ROS-2/
+│
+├── 00_SETUP/
+├── 01_FIRST_STEPS/
+├── 02_EXAMPLE_PROJECTS/
+└── README.md
 
-```bash
-locale
 ```
 
 ---
 
-## 2. Universe Repository Aktifleştirme
+# Başlangıç Sırası (Önerilen Akış)
 
-ROS paketlerinin erişimi için Ubuntu Universe repository aktif edilmelidir:
-
-```bash
-sudo apt install software-properties-common
-sudo add-apt-repository universe
-```
+Bu repo sırayla ilerlenmelidir:
 
 ---
 
-## 3. ROS 2 APT Repository ve Key Setup
+## 1. Kurulum Aşaması
+[`00_SETUP/`](./00_SETUP/)
 
-ROS 2 paketlerini indirebilmek için resmi repository eklenir:
+Bu bölümde sistem hazırlanır:
+- ROS 2 Humble kurulumu
+- Colcon build tool kurulumu
+- VS Code ve geliştirme araçları
+- Terminator terminal setup
+- Python / CMake ortam hazırlığı
 
-```bash
-sudo apt update && sudo apt install curl -y
-```
-
-ROS key ekleme:
-
-```bash
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
--o /usr/share/keyrings/ros-archive-keyring.gpg
-```
-
-Repository ekleme:
-
-```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
-http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | \
-sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-```
+Amaç:
+> Sistemi tamamen çalışır hale getirmek
 
 ---
 
-## 4. ROS 2 Paketlerini Güncelleme ve Kurulum
+## 2. ROS Temelleri
+[`01_FIRST_STEPS/`](./01_FIRST_STEPS/)
 
-```bash
-sudo apt update
-sudo apt upgrade
-```
+Bu bölümde ROS 2 öğrenilir:
+- Node nedir?
+- Topic nasıl çalışır?
+- Publisher / Subscriber mantığı
+- ROS 2 CLI (ros2 run, ros2 topic vs)
+- Basit demo uygulamalar
 
-ROS 2 Desktop kurulumu:
-
-```bash
-sudo apt install ros-humble-desktop
-```
-
-Alternatif (minimal kurulum):
-
-```bash
-sudo apt install ros-humble-ros-base
-```
+Amaç:
+> ROS 2’nin çalışma mantığını anlamak
 
 ---
 
-## 5. Environment Setup
+## 3. Örnek Projeler
+[`02_EXAMPLE_PROJECTS/`](./02_EXAMPLE_PROJECTS/)
 
-ROS 2 kullanımı için environment değişkenleri yüklenmelidir:
-
-```bash
-source /opt/ros/humble/setup.bash
-```
-
-Kalıcı yapmak için:
-
-```bash
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-```
+- kamera pipeline
+- ROS node örnekleri
+- Basit demo uygulamalar
 
 ---
 
-## Kurulum Sonu Kontrol
+# Kullanılan Teknolojiler
 
-```bash
-ros2 run demo_nodes_cpp talker
-```
-
-Yeni terminal:
-
-```bash
-ros2 run demo_nodes_py listener
-```
-
-Eğer mesajlar akıyorsa kurulum başarılıdır.
-
-## Kullanılacak Araçlar (Development Environment Setup)
-
-ROS 2 geliştirme sürecinde daha verimli bir çalışma ortamı oluşturmak için bazı temel araçlar kurulmuştur. Bu araçlar hem kod geliştirme hem de sistem takibi açısından geliştirme sürecini kolaylaştırır.
+- ROS 2 Humble
+- Ubuntu 22.04
+- Python 3.10
+- C++ (ROS node geliştirme)
+- OpenCV
+- Colcon / CMake
+- VS Code
 
 ---
 
-## 1. VS Code (Visual Studio Code)
+# Not
 
-Geliştirme ortamı olarak **VS Code** kullanılmıştır.
+- Bu repository sürekli geliştirilme aşamasındadır
+- ROS 2 ekosistemi zamanla değişebilir
+- Tüm kurulum ve kullanım adımları referans amaçlıdır
 
-Kullanım amacı:
-- ROS 2 node geliştirme
-- Python / C++ kod yazımı
-- CMake projelerinin yönetimi
-- Debug ve extension desteği
-
-Kurulum sonrası eklenen önemli eklentiler:
-- CMake Tools
-- Python Extension
-- C/C++ Extension
+Güncel bilgiler için resmi ROS 2 dokümantasyonu her zaman kontrol edilmelidir.
 
 ---
 
-## 2. CMake Tools (VS Code Extension)
+# Başlamak için
 
-VS Code içerisine **CMake Tools** eklentisi kurulmuştur.
+İlk adım:
+`00_SETUP/` klasörüne giderek ROS 2 kurulumunu tamamlayın.
 
-Kullanım amacı:
-- C++ ROS 2 paketlerini build etmek
-- CMake yapılarını yönetmek
-- Derleme sürecini VS Code içinden kontrol etmek
+Kurulum tamamlandıktan sonra:
+`01_FIRST_STEPS/` ile ROS 2 öğrenme sürecine geçin.
 
----
-
-## 3. Python Pip
-
-```bash
-sudo apt install python3-pip
-````
-
-Kullanım amacı:
-
-* Python ROS 2 paket bağımlılıklarını yönetmek
-* Ek Python kütüphanelerini kurmak
-
----
-
-## 4. Terminator Terminal
-
-```bash
-sudo apt install terminator
-```
-
-Kurulum sebebi:
-
-* Aynı anda birden fazla terminal ekranı kullanabilmek
-* ROS 2 node, topic ve debug süreçlerini paralel takip edebilmek
-
-Avantaj:
-
-* Tek pencere içinde bölünmüş terminal ekranları
-* ROS sistemlerinde gerçek zamanlı izleme kolaylığı
-
-Not:
-Terminator için Linux shortcut kullanımı önemlidir (split screen, tab switching vb.)
-
----
-
-## 5. Gedit
-
-```bash
-gedit
-```
-
-Kullanım amacı:
-
-* Hızlı dosya düzenleme
-* Config dosyalarını değiştirme
-* Hafif text editör ihtiyacı
-
----
-
-## Genel Amaç
-
-Bu araçlar:
-
-* ROS 2 geliştirme ortamını standart hale getirmek
-* Debug sürecini hızlandırmak
-* Multi-node sistemleri aynı anda gözlemlemek
-* C++ ve Python tabanlı ROS projelerini birlikte yönetmek
-
----
-
-## Özet
-
-Bu setup ile:
-
-* VS Code → ana geliştirme ortamı
-* Terminator → multi-terminal kontrol
-* CMake Tools → build sistemi kontrolü
-* Pip → Python bağımlılık yönetimi
-* Gedit → hızlı edit işlemleri
-
-daha stabil ve verimli bir ROS 2 geliştirme ortamı oluşturulmuştur.
