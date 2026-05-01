@@ -177,9 +177,6 @@ ros2 run demo_nodes_py listener
 
 Eğer mesajlar akıyorsa kurulum başarılıdır.
 
-```
-```
-
 ## Kullanılacak Araçlar (Development Environment Setup)
 
 ROS 2 geliştirme sürecinde daha verimli bir çalışma ortamı oluşturmak için bazı temel araçlar kurulmuştur. Bu araçlar hem kod geliştirme hem de sistem takibi açısından geliştirme sürecini kolaylaştırır.
