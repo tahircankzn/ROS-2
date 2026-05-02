@@ -259,6 +259,84 @@ Kullanım amacı:
 
 ---
 
+## 6. Colcon Kurulumu (Build System)
+
+ROS 2 projelerinde paketleri derlemek ve workspace yönetmek için **colcon** kullanılır.
+
+---
+
+### Kurulum
+
+```bash
+sudo apt update
+sudo apt install python3-colcon-common-extensions
+````
+
+---
+
+### Kurulum Doğrulama
+
+```bash
+colcon --version
+```
+
+Eğer versiyon bilgisi geliyorsa kurulum başarılıdır.
+
+---
+
+### Colcon Nedir?
+
+Colcon:
+
+* ROS 2 paketlerini derlemek için kullanılır
+* Workspace içerisindeki tüm paketleri otomatik olarak build eder
+* Bağımlılık sırasını kendisi yönetir
+* Hem C++ hem Python paketlerini destekler
+
+---
+
+### Ne Zaman Kullanılır?
+
+* Yeni bir ROS 2 paketi oluşturduktan sonra
+* Kod değişikliği yaptıktan sonra
+* Tüm workspace’i yeniden derlemek istediğinde
+
+---
+
+### Temel Kullanım
+
+Bir workspace içinde:
+
+```bash
+colcon build
+```
+
+---
+
+### Önemli Not
+
+Build sonrası environment yüklenmelidir:
+
+```bash
+source install/setup.bash
+```
+
+Bu yapılmazsa:
+
+* node’lar bulunamaz
+* paketler çalışmaz
+
+---
+
+## Özet
+
+Colcon:
+
+* ROS 2’nin **temel build aracıdır**
+* Workspace yönetiminin merkezindedir
+* Proje geliştirme sürecinin vazgeçilmezidir
+
+
 ## Genel Amaç
 
 Bu araçlar:
@@ -279,5 +357,6 @@ Bu setup ile:
 * CMake Tools → build sistemi kontrolü
 * Pip → Python bağımlılık yönetimi
 * Gedit → hızlı edit işlemleri
+* Colcon → temel build aracı
 
 daha stabil ve verimli bir ROS 2 geliştirme ortamı oluşturulmuştur.
