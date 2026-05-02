@@ -71,32 +71,42 @@ Amaç:
 
 ---
 
-# Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
-- ROS 2 Humble
-- Ubuntu 22.04
-- Python 3.10
-- C++ (ROS node geliştirme)
-- OpenCV
-- Colcon / CMake
-- VS Code
+| Teknoloji | Versiyon/Açıklama |
+|-----------|-------------------|
+| **ROS 2** | Humble (LTS) |
+| **İşletim Sistemi** | Ubuntu 22.04 |
+| **Python** | 3.10 |
+| **C++** | ROS node geliştirme |
+| **OpenCV** | Görüntü işleme |
+| **Colcon** | Build system |
+| **CMake** | C++ build tool |
+| **VS Code** | IDE |
 
 ---
 
-# Not
+## Önemli Notlar
 
 - Bu repository sürekli geliştirilme aşamasındadır
 - ROS 2 ekosistemi zamanla değişebilir
 - Tüm kurulum ve kullanım adımları referans amaçlıdır
-
-Güncel bilgiler için resmi ROS 2 dokümantasyonu her zaman kontrol edilmelidir.
+- Güncel bilgiler için [resmi ROS 2 dokümantasyonu](https://docs.ros.org/en/humble/) kontrol edilmelidir
 
 ---
 
-# Başlamak için
+## Başlamak İçin
 
-İlk adım:
-`00_SETUP/` klasörüne giderek ROS 2 kurulumunu tamamlayın.
+1. **[00_SETUP/](./00_SETUP/)** klasörüne gidin
+2. ROS 2 Humble kurulumunu tamamlayın
+3. Geliştirme araçlarını kurun
+4. **[01_FIRST_STEPS/](./01_FIRST_STEPS/)** ile öğrenmeye başlayın
+
+---
+
+## Destek ve Katkı
+
+Sorularınız veya katkılarınız için issue açabilirsiniz.
 
 Kurulum tamamlandıktan sonra:
 `01_FIRST_STEPS/` ile ROS 2 öğrenme sürecine geçin.
