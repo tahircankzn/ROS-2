@@ -91,3 +91,96 @@ Eğer komut çalışıyorsa:
 ROS 2 environment doğru şekilde yapılandırılmıştır.
 
 
+## ROS 2 İlk Çalıştırma ve CLI Temelleri
+
+Bu bölümde ROS 2’nin temel kullanım mantığı ve ilk iletişim yapısı test edilir.
+
+---
+
+## 1. ROS 2 Komut Yardımı (Tab Tamamlama)
+
+Terminale sadece:
+
+```bash
+ros2
+````
+
+yazılıp **iki kez TAB tuşuna basıldığında**, ROS 2 ile kullanılabilecek tüm alt komutlar listelenir.
+
+---
+
+## Bu Ne İşe Yarar?
+
+Bu özellik:
+
+* ROS 2 CLI komutlarını keşfetmeyi sağlar
+* Hangi modüllerin (topic, node, service vb.) olduğunu gösterir
+* Terminal üzerinden hızlı dokümantasyon gibi çalışır
+
+👉 ROS 2’nin komut yapısını öğrenmenin en hızlı yoludur
+
+---
+
+## 2. Talker ve Listener Çalıştırma
+
+ROS 2’nin temel veri iletişimini test etmek için iki terminal açılır.
+
+---
+
+## Terminal 1 – Talker (Publisher)
+
+```bash id="talker_1"
+ros2 run demo_nodes_cpp talker
+```
+
+### Görevi:
+
+* Sürekli veri üretir
+* Bu veriyi ROS topic üzerinden yayınlar
+* Sistemde **publisher (yayıncı)** rolündedir
+
+---
+
+## Terminal 2 – Listener (Subscriber)
+
+```bash id="listener_1"
+ros2 run demo_nodes_py listener
+```
+
+### Görevi:
+
+* Talker tarafından yayınlanan veriyi alır
+* Gelen mesajları ekrana yazdırır
+* Sistemde **subscriber (dinleyici)** rolündedir
+
+---
+
+## 3. ROS 2 “Hello World” Mantığı
+
+Bu yapı ROS 2’nin en temel örneğidir:
+
+**Talker → veri gönderir**
+**Listener → veriyi alır**
+
+Bu yüzden ROS 2 dünyasında bu örnek:
+
+> “Hello World of ROS 2”
+
+olarak kabul edilir.
+
+---
+
+## 4. Sistem Davranışı (Önemli Mantık)
+
+### Talker kapatılırsa:
+
+* Listener çalışmaya devam eder
+* Ancak yeni veri gelmez
+
+### Talker tekrar başlatılırsa:
+
+* Listener otomatik olarak tekrar veri almaya başlar
+* Sistem yeniden senkronize olur
+
+
+
