@@ -24,4 +24,4 @@ Bu özellik:
 * Hangi modüllerin (topic, node, service vb.) olduğunu gösterir
 * Terminal üzerinden hızlı dokümantasyon gibi çalışır
 
-👉 ROS 2'nin komut yapısını öğrenmenin en hızlı yoludur
+ROS 2'nin komut yapısını öğrenmenin en hızlı yoludur
